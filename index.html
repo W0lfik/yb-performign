@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>performing</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="icon" href="img/favYBw.png" type="image/x-icon" class="fav"/>
   </head>
   <body>
     <header>
-      <div class="logo"><img src="img/logo.png" /></div>
+      <div class="logo"><img src="img/logo.png" alt="YB performing"/></div>
     </header>
     <div class="banner">
       <h1>Moderne kozijnen  en deuren op maat van uw huis</h1>
-      <img src="img/bannerMainPage.jpg" class="bannerImg" />
+      <img src="img/bannerMainPage.jpg" alt="windows" class="bannerImg" />
     </div>
     <div class="block1">
       <h2>
@@ -21,21 +22,7 @@
       <a href="">Gratis offerte</a>
     </div>
     <div class="slider">
-      <div class="companies">
-        <img src="img/aluprof.png" alt="aluprof" /><img
-          src="img/forster.png"
-          alt="forster"
-        /><img src="img/reynaesrs.png" alt="reynaesrs aluminum" /><img
-          src="img/cortizo.png"
-          alt="cortizo"
-        /><img src="img/aluplast.png" alt="aluplast" /><img
-          src="img/deceuninck.png"
-          alt="deceuninck"
-        /><img src="img/gealan.webp" alt="gealan" /><img
-          src="img/salamander.png"
-          alt="salamander"
-        />
-
+      <div class="companies" id="companySlider">
         <img src="img/aluprof.png" alt="aluprof" /><img
           src="img/forster.png"
           alt="forster"
@@ -66,20 +53,47 @@
       </div>
     </div>
     <footer>
-      
       <p>
-        YB performing<br><br>
+        YB performing<br /><br />
 
-        Bilderdijkstraat 2-2<br>
-        2513CP 's-GravenhageNetherlands<br><br>
+        Bilderdijkstraat 2-2<br />
+        2513CP 's-Gravenhage<br />Netherlands<br /><br />
 
         KVK: 86615114
       </p>
 
       <p>© YB performing, alle rechten voorbehouden</p>
 
-      <p>telephone: +31687784500<br>e-mail: ybperformong@gmail.com</p>
-   
+      <p>telephone: +31687784500<br />e-mail: ybperformong@gmail.com</p>
     </footer>
+    <script>
+      const slider = document.getElementById("companySlider"); // Get the slider element
+      const logos = document.querySelectorAll("#companySlider img"); // Get all the logos inside the slider
+
+      let scrollAmount = 0; // Track how much we’ve scrolled
+      const scrollSpeed = 0.5; // Animation speed (pixels per frame)
+
+      // Clone the logos and append them to the end for seamless scrolling
+      logos.forEach((logo) => {
+        const clone = logo.cloneNode(true); // Clone the logo
+        slider.appendChild(clone); // Append the cloned logo to the end
+      });
+
+      // Start the infinite scrolling animation
+      function animateSlider() {
+        scrollAmount -= scrollSpeed; // Move the slider to the left
+        slider.style.transform = `translateX(${scrollAmount}px)`; // Apply the transformation
+
+        // Reset the scroll position when the first set of logos is out of view
+        if (Math.abs(scrollAmount) >= slider.scrollWidth / 2) {
+          scrollAmount = 0; // Reset to the initial position
+        }
+
+        requestAnimationFrame(animateSlider); // Continue the animation
+      }
+
+      // Start the animation
+      animateSlider();
+    </script>
   </body>
 </html>
