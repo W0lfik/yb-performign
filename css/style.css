@@ -27,8 +27,7 @@ header {
   font-family: Bakbak One;
   font-weight: 500;
   width: 34vw;
-  height: 50vh;
-  margin-top: 14rem;
+  margin-top: 11rem;
   margin-left: 4rem;
   line-height: 106.2%;
   filter: drop-shadow(0px 11px 16.5px #000000);
@@ -122,7 +121,7 @@ footer > p:nth-child(2) {
   .banner > h1 {
     font-size: calc(4vw + 1em);
     margin-left: 2rem;
-    margin-top: 10rem;
+    
     width: 80%;
     height: auto;
     line-height: 1.2;
